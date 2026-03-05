@@ -56,6 +56,13 @@ local palettes = {
     diff_add_alpha  = 0.2,
     diff_del_alpha  = 0.2,
     diff_mod_alpha  = 0.3,
+
+    -- mode indicator alphas
+    mode_insert   = 0.3,
+    mode_visual   = 0.2,
+    mode_replace  = 0.3,
+    mode_command  = 0.3,
+    mode_terminal = 0.3,
   },
   dark = {
     bg          = "{{ dark.primary }}",
@@ -109,6 +116,13 @@ local palettes = {
     diff_add_alpha  = 0.6,
     diff_del_alpha  = 0.8,
     diff_mod_alpha  = 0.7,
+
+    -- mode indicator alphas (higher for dark)
+    mode_insert   = 0.7,
+    mode_visual   = 0.6,
+    mode_replace  = 0.7,
+    mode_command  = 0.6,
+    mode_terminal = 0.6,
   },
 }
 
@@ -149,6 +163,13 @@ function M.setup()
   local diff_mod      = blend(p.warning, p.bg, p.diff_mod_alpha)
   local visual_bg     = selection
 
+  -- Pre-compute mode indicator colors
+  local mode_insert   = blend(p.warning, p.bg, p.mode_insert)
+  local mode_visual   = blend(p.info, p.bg, p.mode_visual)
+  local mode_replace  = blend(p.error, p.bg, p.mode_replace)
+  local mode_command  = blend(p.magenta_bright, p.bg, p.mode_command)
+  local mode_terminal = blend(p.success, p.bg, p.mode_terminal)
+
   local hi = function(name, opts)
     vim.api.nvim_set_hl(0, name, opts)
   end
@@ -186,6 +207,14 @@ function M.setup()
 
   hi("StatusLine",   { fg = p.fg, bg = p.bg_tert })
   hi("StatusLineNC", { fg = p.fg_sec, bg = p.bg_sec })
+
+  hi("ModeNormal",   { fg = p.fg, bg = p.bg_tert, bold = true })
+  hi("ModeInsert",   { fg = p.fg, bg = mode_insert, bold = true })
+  hi("ModeVisual",   { fg = p.fg, bg = mode_visual, bold = true })
+  hi("ModeReplace",  { fg = p.fg, bg = mode_replace, bold = true })
+  hi("ModeCommand",  { fg = p.fg, bg = mode_command, bold = true })
+  hi("ModeTerminal", { fg = p.fg, bg = mode_terminal, bold = true })
+
   hi("TabLine",      { fg = p.fg_sec, bg = p.bg_alt })
   hi("TabLineFill",  { bg = p.bg_alt })
   hi("TabLineSel",   { fg = p.fg, bg = p.bg_sec, bold = true })
