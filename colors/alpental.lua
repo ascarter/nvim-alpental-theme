@@ -9,6 +9,7 @@ local palettes = {
     bg_alt      = "#FAFAFA",
     bg_sec      = "#F2F2F2",
     bg_tert     = "#ECECEC",
+    status_bg   = "#ECECEC",
     neutral     = "#CBCBCB",
 
     fg          = "#000000",
@@ -69,6 +70,7 @@ local palettes = {
     bg_alt      = "#151515",
     bg_sec      = "#212121",
     bg_tert     = "#494949",
+    status_bg   = "#212121",
     neutral     = "#CBCBCB",
 
     fg          = "#FFFFFF",
@@ -205,10 +207,10 @@ function M.setup()
   hi("PmenuSbar",    { bg = p.bg_sec })
   hi("PmenuThumb",   { bg = p.neutral })
 
-  hi("StatusLine",   { fg = p.fg, bg = p.bg_tert })
+  hi("StatusLine",   { fg = p.fg, bg = p.status_bg })
   hi("StatusLineNC", { fg = p.fg_sec, bg = p.bg_sec })
 
-  hi("ModeNormal",   { fg = p.fg, bg = p.bg_tert, bold = true })
+  hi("ModeNormal",   { fg = p.fg, bg = p.status_bg, bold = true })
   hi("ModeInsert",   { fg = p.fg, bg = mode_insert, bold = true })
   hi("ModeVisual",   { fg = p.fg, bg = mode_visual, bold = true })
   hi("ModeReplace",  { fg = p.fg, bg = mode_replace, bold = true })
