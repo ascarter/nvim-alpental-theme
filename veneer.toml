@@ -1,0 +1,89 @@
+# Alpental palette
+[meta]
+name = "Alpental"
+version = "1.0"
+
+[colors.light]
+primary   = "#FFFFFF"
+alternate = "#FAFAFA"
+secondary = "#F2F2F2"
+tertiary  = "#ECECEC"
+neutral   = "#CBCBCB"
+
+text_primary          = "#000000"
+text_secondary        = "#494949"
+text_tertiary         = "#636363"
+text_invert_primary   = "#FFFFFF"
+text_invert_secondary = "#F2F2F2"
+text_disabled         = "#8E8E8E"
+
+[colors.dark]
+primary   = "#000000"
+alternate = "#151515"
+secondary = "#212121"
+tertiary  = "#494949"
+neutral   = "#CBCBCB"
+
+text_primary          = "#FFFFFF"
+text_secondary        = "#CBCBCB"
+text_tertiary         = "#7A7A7A"
+text_invert_primary   = "#000000"
+text_invert_secondary = "#151515"
+text_disabled         = "#8E8E8E"
+
+[accents]
+info              = "#4294FF"
+info_secondary    = "#005E7D"
+success           = "#52C133"
+success_secondary = "#4A8231"
+warning           = "#FFAC00"
+warning_secondary = "#D58103"
+error             = "#F05A4F"
+error_secondary   = "#DC3127"
+
+# ANSI 16 mappings
+# Indices: 0-7 normal, 8-15 bright
+
+[ansi.light.normal]
+# 0-7
+black   = "colors.light.text_primary"
+red     = "accents.error_secondary"
+green   = "accents.success_secondary"
+yellow  = "accents.warning_secondary"
+blue    = "accents.info_secondary"
+magenta = "#6B3FA0"
+cyan    = "#0B6B75"
+white   = "colors.light.neutral"
+
+[ansi.light.bright]
+# 8-15
+black   = "colors.light.text_secondary"
+red     = "accents.error"
+green   = "accents.success"
+yellow  = "accents.warning"
+blue    = "accents.info"
+magenta = "#8E63D6"
+cyan    = "#1A8C98"
+white   = "colors.light.primary"
+
+[ansi.dark.normal]
+# 0-7
+black   = "colors.dark.primary"
+red     = "accents.error_secondary"
+green   = "accents.success_secondary"
+yellow  = "accents.warning_secondary"
+blue    = "accents.info_secondary"
+magenta = "#6B3FA0"
+cyan    = "#0B6B75"
+white   = "colors.dark.text_secondary"
+
+[ansi.dark.bright]
+# 8-15
+black   = "colors.dark.tertiary"
+red     = "accents.error"
+green   = "accents.success"
+yellow  = "accents.warning"
+blue    = "accents.info"
+magenta = "#8E63D6"
+cyan    = "#1A8C98"
+white   = "colors.dark.text_primary"
