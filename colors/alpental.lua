@@ -9,7 +9,7 @@ local palettes = {
     bg_alt      = "#FAFAFA",
     bg_sec      = "#F2F2F2",
     bg_tert     = "#ECECEC",
-    status_bg   = "#ECECEC",
+    status_bg   = "#F2F2F2",
     neutral     = "#CBCBCB",
 
     fg          = "#000000",

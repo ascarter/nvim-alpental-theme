@@ -9,7 +9,7 @@ local palettes = {
     bg_alt      = "{{ light.alternate }}",
     bg_sec      = "{{ light.secondary }}",
     bg_tert     = "{{ light.tertiary }}",
-    status_bg   = "{{ light.tertiary }}",
+    status_bg   = "{{ light.secondary }}",
     neutral     = "{{ light.neutral }}",
 
     fg          = "{{ light.text_primary }}",
