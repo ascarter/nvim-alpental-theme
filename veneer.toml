@@ -53,7 +53,7 @@ yellow  = "accents.warning_secondary"
 blue    = "accents.info_secondary"
 magenta = "#6B3FA0"
 cyan    = "#0B6B75"
-white   = "colors.light.neutral"
+white   = "colors.light.text_tertiary"
 
 [ansi.light.bright]
 # 8-15
@@ -64,7 +64,7 @@ yellow  = "accents.warning"
 blue    = "accents.info"
 magenta = "#8E63D6"
 cyan    = "#1A8C98"
-white   = "colors.light.primary"
+white   = "colors.light.neutral"
 
 [ansi.dark.normal]
 # 0-7

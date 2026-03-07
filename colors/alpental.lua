@@ -40,7 +40,7 @@ local palettes = {
     ansi_blue           = "#005E7D",
     ansi_magenta        = "#6B3FA0",
     ansi_cyan           = "#0B6B75",
-    ansi_white          = "#CBCBCB",
+    ansi_white          = "#636363",
     ansi_bright_black   = "#494949",
     ansi_bright_red     = "#F05A4F",
     ansi_bright_green   = "#52C133",
@@ -48,7 +48,7 @@ local palettes = {
     ansi_bright_blue    = "#4294FF",
     ansi_bright_magenta = "#8E63D6",
     ansi_bright_cyan    = "#1A8C98",
-    ansi_bright_white   = "#FFFFFF",
+    ansi_bright_white   = "#CBCBCB",
 
     -- blended colors for search/selection/diagnostics
     search_match    = 0.3,
@@ -242,6 +242,8 @@ function M.setup()
   hi("NormalNC",     { fg = p.fg, bg = p.bg_alt })
   hi("FloatBorder",  { fg = p.neutral, bg = p.bg })
   hi("FloatTitle",   { fg = p.fg, bg = p.bg, bold = true })
+
+  hi("TermNormal", { fg = p.fg, bg = p.bg_sec })
 
   hi("Cursor",       { fg = p.bg, bg = p.info })
   hi("CursorLine",   { bg = p.bg_sec })
