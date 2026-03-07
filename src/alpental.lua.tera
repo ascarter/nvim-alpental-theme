@@ -143,6 +143,46 @@ local function blend(fg, bg, alpha)
   return string.format("#%02x%02x%02x", r, g, b)
 end
 
+--- Convert a hex color to the nearest xterm-256 color index.
+---@param hex_color string hex color (e.g. "#ff00aa")
+---@return number index 0-255
+local function hex_to_cterm256(hex_color)
+  local r = tonumber(hex_color:sub(2, 3), 16)
+  local g = tonumber(hex_color:sub(4, 5), 16)
+  local b = tonumber(hex_color:sub(6, 7), 16)
+
+  -- Check grayscale ramp (indices 232-255, 24 shades from #080808 to #eeeeee)
+  -- plus pure black (16) and near-white (231)
+  local gray_avg = (r + g + b) / 3
+  local is_gray = (math.abs(r - gray_avg) < 10
+    and math.abs(g - gray_avg) < 10
+    and math.abs(b - gray_avg) < 10)
+
+  if is_gray then
+    if gray_avg < 4 then
+      return 16 -- #000000
+    elseif gray_avg > 244 then
+      return 231 -- #ffffff
+    else
+      local idx = math.floor((gray_avg - 8) / 10 + 0.5)
+      return 232 + math.max(0, math.min(23, idx))
+    end
+  end
+
+  -- Map to the 6x6x6 color cube (indices 16-231)
+  local function to6(v)
+    -- Cube values: 0x00, 0x5f, 0x87, 0xaf, 0xd7, 0xff
+    if v < 48 then return 0
+    elseif v < 115 then return 1
+    elseif v < 155 then return 2
+    elseif v < 195 then return 3
+    elseif v < 235 then return 4
+    else return 5 end
+  end
+
+  return 16 + 36 * to6(r) + 6 * to6(g) + to6(b)
+end
+
 function M.setup()
   vim.cmd("hi clear")
   if vim.fn.exists("syntax_on") then
@@ -173,6 +213,24 @@ function M.setup()
   local mode_terminal = blend(p.success, p.bg, p.mode_terminal)
 
   local hi = function(name, opts)
+    -- Add cterm fallback attributes for 256-color terminals
+    if not opts.link then
+      if opts.fg then
+        opts.ctermfg = hex_to_cterm256(opts.fg)
+      end
+      if opts.bg then
+        opts.ctermbg = hex_to_cterm256(opts.bg)
+      end
+      local cterm = {}
+      if opts.bold then cterm.bold = true end
+      if opts.italic then cterm.italic = true end
+      if opts.underline then cterm.underline = true end
+      if opts.undercurl then cterm.underline = true end
+      if opts.strikethrough then cterm.strikethrough = true end
+      if next(cterm) then
+        opts.cterm = cterm
+      end
+    end
     vim.api.nvim_set_hl(0, name, opts)
   end
 
