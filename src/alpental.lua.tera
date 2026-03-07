@@ -243,7 +243,8 @@ function M.setup()
   hi("FloatBorder",  { fg = p.neutral, bg = p.bg })
   hi("FloatTitle",   { fg = p.fg, bg = p.bg, bold = true })
 
-  hi("TermNormal", { fg = p.fg, bg = p.bg_sec })
+  hi("TerminalNormal", { fg = p.fg, bg = p.bg_sec })
+  hi("TerminalNC",     { fg = p.fg, bg = p.bg_sec })
 
   hi("Cursor",       { fg = p.bg, bg = p.info })
   hi("CursorLine",   { bg = p.bg_sec })
