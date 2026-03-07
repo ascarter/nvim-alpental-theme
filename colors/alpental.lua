@@ -198,7 +198,7 @@ function M.setup()
 
   -- Pre-compute blended colors
   local search_match  = blend(p.warning, p.bg, p.search_match)
-  local search_active = blend(p.info, p.bg, p.search_active)
+  local search_active = blend(p.warning, p.bg, p.search_active)
   local selection     = blend(p.info, p.bg, p.selection)
   local diff_add      = blend(p.info, p.bg, p.diff_add_alpha)
   local diff_del      = blend(p.error_sec, p.bg, p.diff_del_alpha)
