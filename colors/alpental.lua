@@ -28,26 +28,26 @@ local palettes = {
     error           = "#F05A4F",
     error_sec       = "#DC3127",
 
-    magenta         = "#6B3FA0",
-    magenta_bright  = "#8E63D6",
-    cyan            = "#0B6B75",
-    cyan_bright     = "#1A8C98",
+    magenta         = "#7A47C2",
+    magenta_bright  = "#8C60CA",
+    cyan            = "#106D78",
+    cyan_bright     = "#13838F",
 
     ansi_black          = "#000000",
     ansi_red            = "#DC3127",
     ansi_green          = "#4A8231",
-    ansi_yellow         = "#D58103",
+    ansi_yellow         = "#8B5801",
     ansi_blue           = "#005E7D",
-    ansi_magenta        = "#6B3FA0",
-    ansi_cyan           = "#0B6B75",
+    ansi_magenta        = "#7A47C2",
+    ansi_cyan           = "#106D78",
     ansi_white          = "#636363",
     ansi_bright_black   = "#494949",
     ansi_bright_red     = "#F05A4F",
-    ansi_bright_green   = "#52C133",
-    ansi_bright_yellow  = "#FFAC00",
+    ansi_bright_green   = "#43862A",
+    ansi_bright_yellow  = "#A66A02",
     ansi_bright_blue    = "#4294FF",
-    ansi_bright_magenta = "#8E63D6",
-    ansi_bright_cyan    = "#1A8C98",
+    ansi_bright_magenta = "#8C60CA",
+    ansi_bright_cyan    = "#13838F",
     ansi_bright_white   = "#CBCBCB",
 
     -- blended colors for search/selection/diagnostics
@@ -89,26 +89,26 @@ local palettes = {
     error           = "#F05A4F",
     error_sec       = "#DC3127",
 
-    magenta         = "#6B3FA0",
-    magenta_bright  = "#8E63D6",
-    cyan            = "#0B6B75",
-    cyan_bright     = "#1A8C98",
+    magenta         = "#9B75D1",
+    magenta_bright  = "#BA9FDF",
+    cyan            = "#1595A3",
+    cyan_bright     = "#1BBCCE",
 
     ansi_black          = "#000000",
-    ansi_red            = "#DC3127",
-    ansi_green          = "#4A8231",
+    ansi_red            = "#E65850",
+    ansi_green          = "#4C9830",
     ansi_yellow         = "#D58103",
-    ansi_blue           = "#005E7D",
-    ansi_magenta        = "#6B3FA0",
-    ansi_cyan           = "#0B6B75",
+    ansi_blue           = "#008AED",
+    ansi_magenta        = "#9B75D1",
+    ansi_cyan           = "#1595A3",
     ansi_white          = "#CBCBCB",
-    ansi_bright_black   = "#494949",
+    ansi_bright_black   = "#6B6B6B",
     ansi_bright_red     = "#F05A4F",
     ansi_bright_green   = "#52C133",
     ansi_bright_yellow  = "#FFAC00",
     ansi_bright_blue    = "#4294FF",
-    ansi_bright_magenta = "#8E63D6",
-    ansi_bright_cyan    = "#1A8C98",
+    ansi_bright_magenta = "#BA9FDF",
+    ansi_bright_cyan    = "#1BBCCE",
     ansi_bright_white   = "#FFFFFF",
 
     -- blended colors for search/selection/diagnostics (higher alpha for dark)
@@ -242,9 +242,6 @@ function M.setup()
   hi("NormalNC",     { fg = p.fg, bg = p.bg_alt })
   hi("FloatBorder",  { fg = p.neutral, bg = p.bg })
   hi("FloatTitle",   { fg = p.fg, bg = p.bg, bold = true })
-
-  hi("TerminalNormal", { fg = p.fg, bg = p.bg_sec })
-  hi("TerminalNC",     { fg = p.fg, bg = p.bg_sec })
 
   hi("Cursor",       { fg = p.bg, bg = p.info })
   hi("CursorLine",   { bg = p.bg_sec })
